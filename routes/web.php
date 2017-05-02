@@ -14,9 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('1', function () {
-    return 'Page 1';
-});
-Route::get('2', function () {
-    return 'Page 2';
-});
+Route::get('{n}', function ($n) {
+    return 'Page '.$n;
+})->where('n','[1-3]');//Restriction on the variable value
+
+//A named route ??
+Route::get('/h',[ 'as' => 'home', function () {
+    return 'Page d\'une route nomée.';
+}]);
