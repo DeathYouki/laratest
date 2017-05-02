@@ -14,11 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('{n}', function ($n) {
-    return 'Page '.$n;
-})->where('n','[1-3]');//Restriction on the variable value
 
-//A named route ??
-Route::get('/h',[ 'as' => 'home', function () {
-    return 'Page d\'une route nomée.';
-}]);
+Route::get('{n}', function ($n) {
+    return response('Page '.$n, 200);//A real HTTP response
+})->where('n','[1-3]');//Restriction on the variable value
+/*Another way to write the HTTP response
+Route::get('{n}', function ($n) {
+    return Response::make('Page '.$n, 200);
+})->where('n','[1-3]');*/
