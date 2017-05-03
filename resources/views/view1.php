@@ -4,6 +4,7 @@
 	<title>A View</title>
 </head>
 <body>
-TEST
+TEST<br>
+<p>Parameters : <?php echo($numero); ?> </p>
 </body>
 </html>
