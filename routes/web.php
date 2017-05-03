@@ -15,12 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('v1/{param1}', function ($param1) {
-    return view('view1')->with('numero', $param1);//numero is the name of the parametre to be used in the view
-    /* Autre methode de faire la meme chose
-    return view('article')->withNumero($n);
-    //Soit passer un array 
-    return view('article', ['numero' => $n]);
+Route::get('facture/{param1}', function ($param1) {
+    return view('facture')->withNumero($param1);
+    /* Il faut souvent rediriger ??
+    return redirect('facture');
+    ou
+    return redirect()->route('facture');
     */
+});
+Route::get('article/{param1}', function ($param1) {
+    return view('article')->withNumero($param1);
 });
 
