@@ -11,19 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@index');
 
-Route::get('facture/{param1}', function ($param1) {
-    return view('facture')->withNumero($param1);
-    /* Il faut souvent rediriger ??
-    return redirect('facture');
-    ou
-    return redirect()->route('facture');
-    */
-});
-Route::get('article/{param1}', function ($param1) {
-    return view('article')->withNumero($param1);
-});
+
 
