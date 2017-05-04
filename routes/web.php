@@ -19,5 +19,7 @@ Route::get('users', 'UserController@getInfos');
 //When using post method
 Route::post('users', 'UserController@postInfos');
 
+Route::get('contact', 'ContactController@getForm');
+Route::post('contact', 'ContactController@postForm');
 
 
