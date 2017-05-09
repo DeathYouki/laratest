@@ -6,7 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ImagesRequest extends Request {
+class ImagesRequest extends FormRequest {
 
     /**
      * Determine if the user is authorized to make this request.

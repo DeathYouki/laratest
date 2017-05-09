@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ImagesRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 
 class PhotoController extends Controller 
 {
@@ -17,8 +18,14 @@ class PhotoController extends Controller
 	public function postForm(ImagesRequest $request)
 	{
 		$image = $request->file('image');//Fetchs the uploaded file 
-
-		if($image->isValid())//Vérifie la validité (consulter symfony)
+		if(!empty($request->hasFile('photo'))) {
+			return "hasFile Sucess";
+			if($image->isValid()) {
+				return "isValid Sucess";
+			}
+		}
+		
+		/*if($image->isValid())//Vérifie la validité (consulter symfony)
 		{
 			$chemin = config('images.path');//Gets the path of the images folder
 
@@ -31,7 +38,7 @@ class PhotoController extends Controller
 			if($image->move($chemin, $nom)) {//Save the image in images folder
 				return view('photo_ok');//If all good
 			}
-		}
+		}*/
 		//If something went wrong
 		return redirect('photo')
 			->with('error','Désolé mais votre image ne peut pas être envoyée !');
